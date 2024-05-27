@@ -8,7 +8,7 @@ function Products() {
   const [sellers, setSellers] = useState([]);
   const [newProduct, setNewProduct] = useState({ name: '', price: '', description: '', sellerId: '' });
   const [editingProduct, setEditingProduct] = useState(null);
-  const [sortOrder, setSortOrder] = useState(null); // Состояние для сортировки
+  const [sortOrder, setSortOrder] = useState(""); // Состояние для сортировки
 
   useEffect(() => {
     fetchProducts();
@@ -92,7 +92,7 @@ function Products() {
       <Typography variant="h4" gutterBottom>Список товаров</Typography>
       <div style={{ marginBottom: '16px' }}>
         <Select
-          value=""
+          value= {sortOrder}
           onChange={(event) => handleSort(event.target.value)}
           displayEmpty
           inputProps={{ 'aria-label': 'Without label' }}

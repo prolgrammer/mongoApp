@@ -164,24 +164,24 @@ function Orders() {
                     margin="normal"
                   />
                   <FormControl fullWidth margin="normal">
-                    <InputLabel>Selected Products</InputLabel>
+                    <InputLabel>Товары</InputLabel>
                     <Select
                       name="Продукты"
                       multiple
                       value={editingOrder.selectedProducts}
                       onChange={handleProductSelect}
-                    >
+                    >             
                       {products.map(product => (
                         <MenuItem key={product.id} value={product.id}>{product.name}</MenuItem>
                       ))}
                     </Select>
                   </FormControl>
                   <Box mt={2}>
-                    <Button variant="contained" color="primary" onClick={handleSave} style={{ marginRight: '8px' }}>
-                      Save
+                    <Button variant="contained" color="primary" onClick={handleSave} style={{ background: 'linear-gradient(45deg, #4CAF50, #8BC34A)', marginRight: '8px' }}>
+                      Сохранить
                     </Button>
-                    <Button variant="outlined" color="secondary" onClick={handleCancel}>
-                      Cancel
+                    <Button variant="contained" color="secondary" onClick={handleCancel} style={{ background: 'linear-gradient(45deg, #4CAF50, #8BC34A)'}}>
+                      Отменить
                     </Button>
                   </Box>
                 </Box>
@@ -233,7 +233,7 @@ function Orders() {
             <FormControl fullWidth margin="normal">
               <InputLabel>Продукты</InputLabel>
               <Select
-                name="Продукты"
+                name="Товары"
                 multiple
                 value={newOrder.selectedProducts}
                 onChange={handleProductSelect}
