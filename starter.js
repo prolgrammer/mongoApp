@@ -72,7 +72,8 @@ db.products.insertMany( [
     "Price": 1300,
     "Description": "нет",
   }
-]); db.orders.insertMany( [
+]); 
+db.orders.insertMany( [
   {
     "buyerEmail": "ivanov@example.com",
     "buyerName": "Иван",
@@ -201,7 +202,8 @@ db.products.insertMany( [
   }
 ], {
   ordered: false
-}); db.users.insertMany( [
+}); 
+db.users.insertMany( [
   {
     "email": "ivanov@example.com",
     "name": "Ivan",
@@ -247,21 +249,26 @@ db.products.insertMany( [
     "email": "pl@gmail.com",
     "phone": "+7858275720"
   }
-]); db.products.aggregate( [
+]); 
+db.products.aggregate( [
   {
     $group: {
       _id: "$name",
       count: { $sum: 1 }
     }
   }
-]) db.users.countDocuments() db.orders.countDocuments() db.products.aggregate( [
+]) 
+db.users.countDocuments() 
+db.orders.countDocuments() 
+db.products.aggregate( [
   {
     $group: {
       _id: null,
       avgPrice: { $avg: "$price" }
     }
   }
-]) db.orders.aggregate( [
+])
+db.orders.aggregate( [
   { $unwind: "$selectedProducts" },
   {
     $group: {
