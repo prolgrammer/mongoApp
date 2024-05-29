@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # Соберите проект
-#RUN mvn clean package
+RUN mvn clean package
 
 # Создайте новый слой для запуска приложения
 FROM amazoncorretto:21.0.2

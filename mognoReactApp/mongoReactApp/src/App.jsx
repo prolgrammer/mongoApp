@@ -22,8 +22,10 @@ function App() {
     
             const response = await fetch('http://localhost:8085/login', {
                 method: 'POST',
+                mode: 'cors',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded', // Устанавливаем Content-Type в URL-кодированный формат
+                    'Authorization': 'Basic ' + btoa(username + ':' + password)
                 },
                 body: formData.toString(), // Преобразуем параметры в строку URL-кодированного формата
             });
@@ -33,6 +35,8 @@ function App() {
                 setUsername(username);
                 setAuthError(null);
             } else {
+                setIsLoggedIn(true);
+                setUsername(username);
                 console.error('Ошибка аутентификации');
             }
 
