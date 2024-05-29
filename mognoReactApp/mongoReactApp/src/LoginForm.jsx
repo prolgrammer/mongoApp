@@ -77,6 +77,7 @@ const handleLogin = async () => {
                     fullWidth
                     onClick={handleLogin}
                     sx={{ marginTop: 2 }}
+                    style={{ background: 'linear-gradient(45deg, #4CAF50, #8BC34A)'}}
                 >
                     Войти
                 </Button>
