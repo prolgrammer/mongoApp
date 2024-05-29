@@ -32,13 +32,13 @@ function Orders() {
     }, []);
   
     const fetchOrders = () => {
-      axios.get('http://localhost:8080/api/orders')
+      axios.get('http://localhost:8085/api/orders')
         .then(response => setOrders(response.data))
         .catch(error => console.error('Error fetching orders:', error));
     };
   
     const fetchProducts = () => {
-      axios.get('http://localhost:8080/api/products')
+      axios.get('http://localhost:8085/api/products')
         .then(response => setProducts(response.data))
         .catch(error => console.error('Error fetching products:', error));
     };
