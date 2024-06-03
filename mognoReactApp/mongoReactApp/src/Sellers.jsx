@@ -14,7 +14,7 @@ function Sellers() {
   }, [searchQuery]); // Добавили зависимость
 
   const fetchSellers = () => {
-    let url = 'http://localhost:8080/api/users';
+    let url = 'http://localhost:8085/api/users';
     if (searchQuery) {
       url += `?query=${searchQuery}`;
     }
@@ -28,7 +28,7 @@ function Sellers() {
   };
 
   const handleAdd = () => {
-    axios.post('http://localhost:8080/api/users', newSeller)
+    axios.post('http://localhost:8085/api/users', newSeller)
       .then(response => {
         setSellers(prevSellers => [...prevSellers, response.data]);
         setNewSeller({ name: '', email: '', phone: '' });
@@ -39,7 +39,7 @@ function Sellers() {
   };
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:8080/api/users/${id}`)
+    axios.delete(`http://localhost:8085/api/users/${id}`)
       .then(() => {
         setSellers(prevSellers => prevSellers.filter(seller => seller.id !== id));
       })
@@ -62,7 +62,7 @@ function Sellers() {
 
   const handleSave = () => {
     if (editingSeller) {
-      axios.put(`http://localhost:8080/api/users/${editingSeller.id}`, editingSeller)
+      axios.put(`http://localhost:8085/api/users/${editingSeller.id}`, editingSeller)
         .then(response => {
           setSellers(prevSellers => prevSellers.map(seller =>
             seller.id === editingSeller.id ? response.data : seller

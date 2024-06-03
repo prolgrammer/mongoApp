@@ -17,6 +17,7 @@
 
 Docker
 Docker Compose
+mongosh
 
 ## Шаги для запуска проекта
 
