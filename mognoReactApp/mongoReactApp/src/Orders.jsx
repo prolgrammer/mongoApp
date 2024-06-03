@@ -51,7 +51,7 @@ function Orders() {
           selectedProducts: newOrder.selectedProducts.map(productId => ({ productId })) // Assuming the backend expects an array of objects with productId
         };
       
-        axios.post('http://localhost:8080/api/orders', preparedData, {
+        axios.post('http://localhost:8085/api/orders', preparedData, {
           headers: {
             'Content-Type': 'application/json'
           }
@@ -65,7 +65,7 @@ function Orders() {
       
   
     const handleDelete = (id) => {
-      axios.delete(`http://localhost:8080/api/orders/${id}`)
+      axios.delete(`http://localhost:8085/api/orders/${id}`)
         .then(response => {
           setOrders(orders.filter(order => order.id !== id));
         })
@@ -106,7 +106,7 @@ function Orders() {
   
     const handleSave = () => {
       if (editingOrder) {
-        axios.put(`http://localhost:8080/api/orders/${editingOrder.id}`, editingOrder)
+        axios.put(`http://localhost:8085/api/orders/${editingOrder.id}`, editingOrder)
           .then(response => {
             setOrders(orders.map(order =>
               order.id === editingOrder.id ? response.data : order
@@ -122,7 +122,7 @@ function Orders() {
     };
   
     const handleSearch = () => {
-      axios.get(`http://localhost:8080/api/orders/search?query=${searchQuery}`)
+      axios.get(`http://localhost:8085/api/orders/search?query=${searchQuery}`)
         .then(response => setOrders(response.data))
         .catch(error => console.error('Error searching orders:', error));
     };

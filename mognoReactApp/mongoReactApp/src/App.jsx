@@ -25,18 +25,17 @@ function App() {
                 mode: 'cors',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded', // Устанавливаем Content-Type в URL-кодированный формат
-                    'Authorization': 'Basic ' + btoa(username + ':' + password)
+                    // 'Authorization': 'Basic ' + btoa(username + ':' + password)
                 },
                 body: formData.toString(), // Преобразуем параметры в строку URL-кодированного формата
             });
             
+            console.log(response.status)
             if (response.ok) {
                 setIsLoggedIn(true);
                 setUsername(username);
                 setAuthError(null);
             } else {
-                setIsLoggedIn(true);
-                setUsername(username);
                 console.error('Ошибка аутентификации');
             }
 

@@ -33,13 +33,13 @@ function Reports() {
     let url;
     switch (reportType) {
       case 'users':
-        url = 'http://localhost:8080/api/reports/get-len-users';
+        url = 'http://localhost:8085/api/reports/get-len-users';
         break;
       case 'products':
-        url = 'http://localhost:8080/api/reports/get-len-products';
+        url = 'http://localhost:8085/api/reports/get-len-products';
         break;
       case 'orders':
-        url = 'http://localhost:8080/api/reports/get-len-orders';
+        url = 'http://localhost:8085/api/reports/get-len-orders';
         break;
       default:
         return;
@@ -58,18 +58,18 @@ function Reports() {
   };
 
   const fetchAveragePrice = () => {
-    axios.get('http://localhost:8080/api/reports/average-price')
+    axios.get('http://localhost:8085/api/reports/average-price')
       .then(response => setAveragePrice(response.data))
       .catch(error => console.error('Error fetching average price:', error));
     
   };
 
   const fetchName = () => {
-    axios.get('http://localhost:8080/api/reports/most-popular-order-name')
+    axios.get('http://localhost:8085/api/reports/most-popular-order-name')
       .then(response => setName(response.data))
       .catch(error => console.error('Error fetching name:', error));
     
-    console.log(axios.get('http://localhost:8080/api/reports/most-popular-order-name').then(response => {
+    console.log(axios.get('http://localhost:8085/api/reports/most-popular-order-name').then(response => {
         console.log(response.data)
     }));
   };

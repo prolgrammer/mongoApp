@@ -16,7 +16,7 @@ function Products() {
   }, [sortOrder]); // Добавляем sortOrder как зависимость
 
   const fetchProducts = () => {
-    let url = 'http://localhost:8080/api/products';
+    let url = 'http://localhost:8085/api/products';
     if (sortOrder) {
       url += `?sortBy=price&order=${sortOrder}`;
     }
@@ -26,13 +26,13 @@ function Products() {
   };
 
   const fetchSellers = () => {
-    axios.get('http://localhost:8080/api/users')
+    axios.get('http://localhost:8085/api/users')
       .then(response => setSellers(response.data))
       .catch(error => console.error('Error fetching sellers:', error));
   };
 
   const handleAdd = () => {
-    axios.post('http://localhost:8080/api/products', newProduct)
+    axios.post('http://localhost:8085/api/products', newProduct)
       .then(response => {
         setProducts([...products, response.data]);
         setNewProduct({ name: '', price: '', description: ''});
@@ -41,7 +41,7 @@ function Products() {
   };
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:8080/api/products/${id}`)
+    axios.delete(`http://localhost:8085/api/products/${id}`)
       .then(() => {
         setProducts(products.filter(product => product.id !== id));
       })
@@ -64,7 +64,7 @@ function Products() {
 
   const handleSave = () => {
     if (editingProduct) {
-      axios.put(`http://localhost:8080/api/products/${editingProduct.id}`, editingProduct)
+      axios.put(`http://localhost:8085/api/products/${editingProduct.id}`, editingProduct)
         .then(response => {
           setProducts(products.map(product =>
             product.id === editingProduct.id ? response.data : product
