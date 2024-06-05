@@ -16,7 +16,7 @@ services:
 
 
   web:
-    build: mognoReactApp\mongoReactApp
+    build: mognoreactapp\mongoreactapp
     container_name: frontend
     ports:
       - "3000:80"
