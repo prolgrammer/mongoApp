@@ -6,7 +6,7 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "Building frontend..."
-docker build -t mognoReactApp/mongoReactApp/frontend:latest ./mognoReactApp/mongoReactApp
+docker build -t mognoreactapp/mongoreactapp/frontend:latest ./mognoreactapp/mongoreactapp
 if [ $? -ne 0 ]; then
   echo "Frontend build failed"
   exit 1
